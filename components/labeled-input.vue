@@ -1,5 +1,5 @@
 <template>
-    <span :class="along+' surface_0'">
+    <span :class="along">
       <div id=label>{{label}}</div>
       <input class="surface_-1" :placeholder="placeholder" :type="type"/>
     </span>
@@ -12,7 +12,8 @@ export default {
 <style scoped>
 input
 {
-    height:3em;
+    min-height:3em;
+    outline: 0px;
 }
 #label
 {
@@ -23,16 +24,16 @@ input
 {
     padding-bottom:var(--surface-0-cariage-length);
 }
-.horizontal.surface_0
+.horizontal
 {
     display: grid;
     grid-template-columns: max-content auto;;
     grid-template-rows: auto;
 }
-.vertical.surface_0
+.vertical
 {
     display: grid;
-    grid-template-rows:auto;
+    grid-template-columns:auto;
     grid-template-rows: auto  max-content;
 }
 </style>

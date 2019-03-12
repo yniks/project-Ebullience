@@ -57,9 +57,17 @@
     
     border-radius: 5px;
     padding: 10px;
-    border: 1px solid #00c8f8;
+    border: 1px solid #0b758e;
     height: 20px;
     width: calc( 100% - 40px);
+  }
+  input:focus
+  {
+      outline-width: 0px;
+  }
+  button:focus
+  {
+      outline-width: 0px;
   }
   #verify
   {

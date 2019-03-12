@@ -7,19 +7,27 @@
     <br><br>
     <div class="fieldsContainer">
       <div id="inputroll">
-        <div class="label" id="roll-label">Your Name</div>
-        <br><input id="input-roll-box" placeholder="Name"/>
+        <br><labeled-input class=".input-and-label" placeholder="Name" label="Enter Name" along="vertical" ></labeled-input>
+      
       </div>
       <br>
       <div id="securityQuestion">
-        <div class="label" id="seq-ques">Question will come here</div>
-        <br><input id="input-seq-question" placeholder="Secret Key"/>
+        <br><labeled-input class=".input-and-label" placeholder="Secret" label="Question Comes" along="vertical" ></labeled-input>
+      
       </div>
     </div>
     <br><br>
-    <button id="verify"><i class="fab fa-google fa-2x"></i>&nbsp;<span>Verify via Google</span></button>
+    <button id="verify" class="surface_2 interactive"><i class="fab fa-google fa-2x"></i>&nbsp;<span>Verify via Google</span></button>
   </div>
 </template>
+<script>
+import labeledInput from "./labeled-input";
+export default {
+  components:{
+    labeledInput
+  }
+}
+</script>
 <style scoped>
     @import url('https://use.fontawesome.com/releases/v5.7.2/css/all.css');
     @import url('https://fonts.googleapis.com/css?family=Aclonica');
@@ -73,16 +81,11 @@
   {
     background:transparent;
     padding: 15px;
-    border: 1px solid #f8fdff;
-    border-radius: 5px;
-    width: 210px;
+    width: 220px;
     color: #16b92c;
     display: block;
     margin:auto;
-    font-family: 'Aclonica', sans-serif;
-    font-size: 15px; 
-    cursor: pointer;
-    box-shadow: 0px 0px 3px 1px #c1baba;
+   
 
   }
   

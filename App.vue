@@ -1,8 +1,5 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <enterRoll/>
-  </div>
+    <enterRoll title="Welcome" label="labeleld :"  placeholder="plaaed" along="horizontal" />
 </template>
 
 <script>
@@ -17,6 +14,7 @@ export default {
 </script>
 
 <style>
+@import url(components/styles.css);
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

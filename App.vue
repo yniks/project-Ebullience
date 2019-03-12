@@ -1,14 +1,14 @@
 <template>
-    <enterRoll title="Welcome" label="labeleld :"  placeholder="plaaed" along="horizontal" />
+  <main-container/>
 </template>
 
 <script>
-import enterRoll from './components/land-enter-rollnumber'
+import mainContainer from './components/main-container.vue'
 
 export default {
   name: 'App',
   components: {
-    enterRoll
+    mainContainer
   }
 }
 </script>

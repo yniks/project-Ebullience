@@ -6,7 +6,7 @@
 </template>
 <script>
 export default {
-    props:["label","placeholder","along"]
+    props:["label","placeholder","along","type"]
 }
 </script>
 <style scoped>

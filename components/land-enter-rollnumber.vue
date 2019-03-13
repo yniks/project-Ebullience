@@ -1,8 +1,8 @@
 <template>
-  <div id="main-roll-box" class="surface_1">
+  <div id="main-roll-box" :class="'surface_1 '+$mq">
     <div id=welcome-text>Welcome</div>
     <div id="label-input-container">
-      <labeled-input class=".input-and-label" placeholder="Roll Number" label="Enter Roll Number :" along="vertical" ></labeled-input>
+      <labeled-input class=".input-and-label" placeholder="Roll Number" label="Enter Roll Number :" along="vertical" type="text" ></labeled-input>
       </div>
     <div id="submit-button">
       <ebul-button>Next</ebul-button>
@@ -13,6 +13,7 @@
 import labeledInput from "./labeled-input";
 import ebulButton from "./ebul-button"
 export default {
+  name:"enter-roll",
   components:{
     labeledInput,
     ebulButton
@@ -32,7 +33,11 @@ export default {
     align-content: center;
     justify-items: center;
     grid-template-columns: 1fr;
-    grid-template-rows: 1.5fr 1.6fr 1fr;
+    grid-template-rows: min-content 1fr min-content;
+  }
+  .surface_1.ms
+  {
+      box-shadow: none;
   }
   #label-input-container,.input-and-label
   {
@@ -40,14 +45,13 @@ export default {
   }
   #welcome-text
   {
-    padding:2vw;
+    padding:2rem;
     font-size:3em;
     color: #00a4d3;
   }
   #submit-button
   {
     justify-self: end;
-    padding: 12px;
   }
 
 </style>

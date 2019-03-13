@@ -1,7 +1,10 @@
-
+body
+{
+    margin: 0px
+}
 @import url('https://fonts.googleapis.com/css?family=Merienda');
 *{
-    --surface_0_background-color:white;
+    --surface_0_background-color:rgba(0,0,0,0.1);
     --surface_0_padding:10px;
     --surface_0_color:black;
     --surface-0-cariage-length:5px;
@@ -10,7 +13,8 @@
     --surface_1_border:0px;
     --surface_1_box-shadow:0px 0px 9px rgba(61,5,27,0.54);
     --surface_1_padding:20px;
-    --surface_1_color:rgba(255,255,255,0.5);
+    --surface_1_color:rgba(255,255,255,1);
+    --surface_1_background-color:rgba(44, 41, 41, 0.5);
 
     --surface_-1_border-radius:8px;
     --surface_-1_border:0px;
@@ -30,11 +34,12 @@
 }
 *
 {
-    font-family: 'Aclonica'
+    font-family: 'Aclonica', sans-serif;
+    box-sizing: border-box;
 }
 input::placeholder{
     color:var(--surface_-1_color);
-    font-family:'Aclonica';
+    font-family:'Aclonica', sans-serif;
 }
 .surface_0
 {
@@ -66,7 +71,7 @@ input,.surface_-1
 }
 .surface_2
 {
-    background-color:var(--surface_2_background-color);
+    /* background-color:var(--surface_2_background-color); */
     color:var(--surface_2_color);
     border:var(--surface_2_border);
     border-radius:var(--surface_2_border-radius);
@@ -82,4 +87,8 @@ button,input
 .interactive
 {
     cursor: pointer;
+}
+.interactive:focus
+{
+    box-shadow: none;
 }

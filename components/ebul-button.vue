@@ -6,5 +6,6 @@
 </style>
 <script>
 export default {
+    name:"ebul-button"
 }
 </script>

@@ -1,16 +1,14 @@
 <template>
-    <div :class="'photo-card-cont surface_2 '+viewMode"  :style="'background-image:url('+data.src+')'">
-                    <div v-if="viewMode=='small-card'" id="image-dp" :style="'background-image:url('+data.src+')'"></div>
-                    <dics-viewer :showIndexes="false" title="name" :data="{name:'Pramod dubey',department:'HINDUVATVA',description:'Mandir waheen banayenge!'}" along='vertical' class='photo-desc' />
+    <div :class="'card-cont surface_1 '+viewMode"  :style="'background-image:url('+data.image+')'">
+                    <div v-if="viewMode=='small-card'" id="image-dp" :style="'background-image:url('+data.image+')'"></div>
+                    <dics-viewer :showIndexes="false" title="name" :data="{name:data.uploader,department:data.department,description:data.fiveWords,tags:data.tags}" along='vertical' class='desc' />
             </div>
 </template> 
 <style scoped>
-    
-    .photo-card-cont
+    .card-cont
     {
         width:100%;
         height: 100%;   
-
         display: grid;
         justify-content: stretch;
         align-content: end;
@@ -20,26 +18,25 @@
         min-width: var(--surface-logo-length);
         min-height:var(--surface-logo-length);
     }
-    #image-dp,.photo-card-cont
+    #image-dp,.card-cont
     {
-        background: rgba(0,0,0,0.5);
+        background: rgba(255,255,255,5);
         background-size:cover;
         background-repeat: no-repeat;
         background-position: center
     }
-    .medium-card.photo-card-cont
+    .medium-card.card-cont
     {
         grid-template-columns: 1fr;
     }
-    .small-card.photo-card-cont
+    .small-card.card-cont
     {
         grid-template-columns: minmax(var(--surface-logo-length),1fr) 2fr;
         grid-template-rows: auto;
         background-image:none !important;
         align-content: center;
     }
-
-    .photo-desc
+    .desc
     {
         height:fit-content;
         width:fit-content;
@@ -47,12 +44,6 @@
         color: white;
         filter: drop-shadow(0px 0px 16px black);
     }
-    /* .medium-card #img
-    {
-        background-size: cover;
-        height: 350px;
-        align-items: end;
-    } */
 </style>
 <script>
 import dicsViewer from "./dics-viewer"

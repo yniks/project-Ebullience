@@ -1,3 +1,7 @@
+<template>
+<SPAn></SPAn>
+</template>
+<style>
 body
 {
     margin: 0px
@@ -6,23 +10,23 @@ body
 *{
     --surface-logo-length:5em;
 
-    --surface_0_background-color:rgba(0,0,0,0.1);
+    --surface_0_background-color:rgba(0,0,0,0);
     --surface_0_padding:10px;
     --surface_0_color:black;
-    --surface-0-cariage-length:5px;
+    --surface-0-cariage-length:1em;
 
     --surface_1_border-radius:16px;
     --surface_1_border:0px;
     --surface_1_box-shadow:0px 0px 9px rgba(61,5,27,0.54);
     --surface_1_padding:20px;
-    --surface_1_color:rgba(255,255,255,1);
+    --surface_1_color:rgba(255,255,255,0.45);
     --surface_1_background-color:rgba(44, 41, 41, 0.5);
 
     --surface_-1_border-radius:8px;
     --surface_-1_border:0px;
     --surface_-1_color:grey;
     --surface_-1_box-shadow:0px 0px 3px rgba(33, 150, 243, 0.85) inset;
-    --surface_-1_padding:12px;
+    --surface_-1_padding:1.62em;
     --surface_-1_font-family:'Merienda';
     --surface_-1_font-size:90%;
 
@@ -32,16 +36,17 @@ body
     --surface_2_border:0px;
     --surface_2_padding:12px;
     --surface_2_font-size:102%;
-    --surface_2_box-shadow:0px 0px 6px rgba(61,5,27,0.54);
+    --surface_2_box-shadow:0px 0px 16px rgba(61,5,27,1.54);
 }
 *
 {
     font-family: 'Aclonica', sans-serif;
     box-sizing: border-box;
+    transition: all .2s ease;
 }
 *::-webkit-scrollbar-track
 {
-	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	box-shadow: inset 0 0 6px rgba(0,0,0,0);
 	background-color:transparent;
 }
 
@@ -91,7 +96,7 @@ input,.surface_-1
 }
 .surface_2
 {
-    /* background-color:var(--surface_2_background-color); */
+    background-color:var(--surface_2_background-color); 
     color:var(--surface_2_color);
     border:var(--surface_2_border);
     border-radius:var(--surface_2_border-radius);
@@ -108,7 +113,13 @@ button,input
 {
     cursor: pointer;
 }
-.interactive:focus
+.interactive:active
 {
-    box-shadow: none;
+    box-shadow: none !important;
 }
+</style>
+<script>
+export default {
+    
+}
+</script>

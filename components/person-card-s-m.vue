@@ -1,69 +1,65 @@
 <template>
-    <div :class="'participant-card-cont surface_2 '+viewMode">
-        <div class="card-fields-cont">
-            <div class="icon">
-                <i class="fas fa-user-tie fa-5x user-icon">X</i>
+    <div :class="'person-card-cont surface_2 '+viewMode"  :style="'background-image:url('+data.image+')'">
+                    <div v-if="viewMode=='small-card'" id="image-dp" :style="'background-image:url('+data.image+')'"></div>
+                    <dics-viewer :showIndexes="false" title="name" :data="{name:'Pramod dubey',department:'HINDUVATVA',description:'Mandir waheen banayenge!'}" along='vertical' class='person-desc' />
             </div>
-            <div class="participant-details">
-               <span class="participant-name participant-detail"> {{data.name}} </span>
-               <span class="participant-detail">Department: {{data.department}}</span>
-               <span class="participant-detail">Events Participated: {{data.eventsCount}}</span>
-            </div>        
-        </div>    
-    </div>  
 </template> 
 <style scoped>
-.participant-card-cont
-{
-        min-width: fit-content;
-        min-height: fit-content;
-        background-color: var(--surface_1_background-color)
-}
-.card-fields-cont
-{
-    width:100%;
-    height: 100%;;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-}
-.icon
-{
-    justify-self: center;
-    min-width:50px;
-    min-height: 50px;
-    display: grid;
-    align-content: center;
-    justify-content: center;
-}
-.small-card .card-fields-cont
-{
-    grid-template-columns:auto auto;
-    grid-template-rows:1fr;
-}
-.medium-card .card-fields-cont
-{
-      grid-template-columns: auto;
-    grid-template-rows: auto auto;
-}
-.participant-details
-{
-    filter:drop-shadow(0px 0px 10px var(--surface_2_color));    
-    justify-self: center;
-    display: grid;
-    padding:12px;
-    padding:minmax(2px,12px);
-    align-content: space-evenly;
-    justify-content: spaced-evenly;
-}
-.participant-name
-{
-    font-size:2em;
-    text-transform: capitalize;
-}
+    
+    .person-card-cont
+    {
+        width:100%;
+        height: 100%;   
+
+        display: grid;
+        justify-content: stretch;
+        align-content: end;
+    }
+    #image-dp
+    {
+        min-width: var(--surface-logo-length);
+        min-height:var(--surface-logo-length);
+    }
+    #image-dp,.person-card-cont
+    {
+        background: rgba(0,0,0,0.5);
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: center
+    }
+    .medium-card.person-card-cont
+    {
+        grid-template-columns: 1fr;
+    }
+    .small-card.person-card-cont
+    {
+        grid-template-columns: minmax(var(--surface-logo-length),1fr) 2fr;
+        grid-template-rows: auto;
+        background-image:none !important;
+        align-content: center;
+    }
+
+    .person-desc
+    {
+        height:fit-content;
+        width:fit-content;
+        overflow-y: scroll;
+        color: white;
+        filter: drop-shadow(0px 0px 16px black);
+    }
+    /* .medium-card #img
+    {
+        background-size: cover;
+        height: 350px;
+        align-items: end;
+    } */
 </style>
 <script>
+import dicsViewer from "./dics-viewer"
 export default {
+    components:{
+        dicsViewer
+    },
     props:{
         viewMode:String,//small-card,medium-card,huge-card
         data:Object,

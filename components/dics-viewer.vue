@@ -1,8 +1,10 @@
 <template>
     <div :class="'surface_0 '+along">
         <div class="desc_item" v-for="(item,name) of data" v-bind:key="name">
+
             <span :id="name+'desc'" class="desc-item-name" v-if="showIndexes">{{name}}</span>
-            <span class="desc-item">{{item}}</span>
+            <span :class="'desc-item '+(title==name?'title':'')">{{item}}</span>
+
         </div>
     </div>
 </template>
@@ -17,6 +19,11 @@
         place-content: stretch;
         width:100%;
         height:100%;
+    }
+    .title
+    {
+        font-size: 170%;
+        text-transform: capitalize;
     }
     .surface_0
     {
@@ -43,6 +50,7 @@
 <script>
 export default {
     props:{
+        title:String,
         along:String,
         showIndexes:Boolean,
         data:Object

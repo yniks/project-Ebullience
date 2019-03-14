@@ -1,48 +1,61 @@
 <template>
-    <div :class="'surface_0 root '+viewode">
-        <div id="list-holder">
-        <div v-for="(number,item) in list" v-bind:key="number"><component :is="item.type" :data="item"></component></div>
+    <div :class="'surface_1 thumb-root '+viewMode">
+        <div id="list-holder" class="surface_-1">
+            <component class="thumb-item" v-for="(item,number) in list" v-bind:key="number" :is="item.type" :data="item" :viewMode="viewMode" ></component>
         </div>
     </div>
 </template>
-<style scoped>
-.root #list-holder
+<style lang="less" scoped>
+.thumb-root
 {
-    display: grid;
+    width: 100%;
+    height: 100%;  
+     #list-holder
+    {
+        display: flex;
+        width:100%;
+        height:100%;
+        justify-content: left;
+     /**
+     TODO:
+     */   
+        align-content: start;
+        flex-flow: row wrap;
+        flex-basis: auto;
+        overflow: scroll;
+        .thumb-item
+        {
+            margin:6px;
+        }
+    }
 }
-.small-card #list-holder
+.small-card 
 {
-    grid-template-columns: 1fr  ;
-    grid-row-gap: auto;
-    grid-auto-rows: minmax(50px,1fr);
-    grid-auto-columns: minmax(150px,1fr);
-    align-content: space-evenly;
-    justify-content: space-evenly;
+    .thumb-item
+    {
+        /**
+            fix the dimensions of the card
+        */
+        width:max-content;
+        height:max-content;
+    }
 }
-.medium-card #list-holder
+.medium-card 
 {
-    grid-template-columns: 1fr;
-    grid-row-gap: auto;
-    grid-auto-rows: minmax(150px,1fr);
-    grid-auto-columns: minmax(150px,1fr);
-    align-content: space-evenly;
-    justify-content: space-evenly;
-}
-.huge-card #list-holder
-{
-    grid-template-columns: 1fr;
-    grid-row-gap: auto;
-    grid-auto-rows: 100%;
-    grid-auto-columns: 100%;
-    align-content: space-evenly;
-    justify-content: space-evenly;
+    .thumb-item
+    {
+        width:max-content;
+        height:370px;
+    }
 }
 </style>
 <script>
+import eventCardSM from "../event-card-s-m"
+import ebulCard from "../card-s-m"
 export default {
     props:{
         viewMode:String,//either small-card, medium-card,huge-card
-        list:Array//this array will be distributed to each sub-component, these objects must also include name of subcomponent
+       // list:Array//this array will be distributed to each sub-component, these objects must also include name of subcomponent
                 // either [person-card,event-card,photo-card]
                 /**
                  * example of list [{
@@ -53,6 +66,224 @@ export default {
                  *         ..etc
                  * }]
                  */
+    },
+    data:()=>({
+        list:[
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },{
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },{
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },{
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },{
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },{
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },{
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+            {
+                    type:"ebul-card",
+                    image:'http://localhost:8081/static/img/pramod.jpg',
+                    department:"CSE",
+                    desc:'Another photo\'s complete description',
+                    fiveWords:'very short descriptioms',
+                    uploader:'Some Person',
+                    tags:'#pic #picture'
+                },
+        ]
+    }),
+    components:{
+        eventCardSM,
+        ebulCard
     }
 }
 </script>

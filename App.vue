@@ -1,11 +1,13 @@
 <template>
   <span>
+      <ebul-styles />
       <div class='backlayer' id="india"></div>
       <div class='backlayer' id="india-vector"></div>
+      <main-container />
        <!-- <dics-viewer :showIndexes="true" :data="{name:'nikhilesh yadav',class:'cs2',sex:'male'}" along='vertical'/> -->
-  <photo-card :data="{src:'//192.168.137.1:8081/img/pramod.jpg',desc:'Another photo\'s complete description',fiveWords:'very short descriptioms',uploader:{name:'Some Person'},tags:['#pic','#picture']}" viewMode="medium-card"/>
      <!-- <event-card :data="{type:'person-card',name:'mikey singh',timing:{from:'1 AM',to:'2 AM'},department:'CSE',fiveWords:'another event is here'}" viewMode="medium-card"/> -->
-    <!-- <person-card :data="{type:'person-card',name:'mikey singh',eventsCount:3,department:'CSE'}" viewMode="small-card"/> -->
+    <!-- <person-card :data="{type:'person-card',name:'mikey singh',eventsCount:3,department:'CSE'}" viewMode="small-card"/> 
+  <photo-card :data="{src:'//192.168.43.249:8081/img/pramod.jpg',desc:'Another photo\'s complete description',fiveWords:'very short descriptioms',uploader:{name:'Some Person'},tags:['#pic','#picture']}" viewMode="medium-card"/> -->
   </span>
 </template>
 
@@ -15,6 +17,10 @@ import personCard from './components/person-card-s-m'
 import eventCard from './components/event-card-s-m'
 import photoCard from './components/photo-card-s-m'
 import dicsViewer from "./components/dics-viewer"
+import ebulCard from "./components/card-s-m"
+import thumbViewer from "./components/list-containers/thumb-viewer"
+import ebulStyles from "./components/style-handle"
+import listViewer from "./components/list-viewer"
 export default {
   name: 'App',
   components: {
@@ -22,13 +28,16 @@ export default {
     personCard,
     eventCard,
     photoCard,
-    dicsViewer
+    dicsViewer,
+    ebulCard,
+    thumbViewer,
+    ebulStyles,
+    listViewer
   }
 }
 </script>
 
 <style>
-@import url(components/styles.css);
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -43,8 +52,8 @@ export default {
     height: 100vh;
     z-index: -1;
     position: fixed;
-    opacity: 0.8;
     background-repeat: no-repeat;
+    opacity: 0.27;
 }
 #india
 {

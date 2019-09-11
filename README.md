@@ -1,2 +1,2 @@
 # project-Ebulience
-WebaApp for Techfest , sportsfest in College
+WebApp for Techfest , sportsfest in College
